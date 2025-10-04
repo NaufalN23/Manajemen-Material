@@ -64,6 +64,9 @@
                 {{ $returns->links() }}
             </div>
         </div>
+                <div class="text-end">
+            <a class="btn btn-primary"href="{{ route('dashboard') }}">Kembali</a>
+        </div>
     </div>
 </div>
 @endsection

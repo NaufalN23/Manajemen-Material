@@ -101,7 +101,7 @@
         </div>
 
         <div class="text-end">
-            <button class="btn btn-primary">Kembali</button>
+            <a class="btn btn-primary"href="{{ route('dashboard') }}">Kembali</a>
         </div>
         
         {{ $materials->links() }}

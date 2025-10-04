@@ -18,8 +18,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" >
             <div class="container">
+                <img src="{{ asset('megavision.png') }}" width="100">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Sistem Manajemen Material ISP') }}
                 </a>
@@ -49,9 +50,7 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('materials.index') }}"> materials </a>
-                                </li>
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

@@ -11,30 +11,27 @@
     </div>
 </div>
 
-
-
-
 <!-- Statistics Cards -->
 <div class="row mb-4">
     <div class="col-xl-3 col-md-6">
         <div class="card bg-primary text-white">
-            <div class="card-body">
+            <a class="card-body text-decoration-none" href="{{ route('materials.index') }}">
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="card-title">Total Material</h5>
-                        <h2 class="mb-0">{{ $totalMaterials }}</h2>
+                        <h2 class="mb-0">{{ $totalMaterials }}</h2>                       
                     </div>
                     <div class="ms-3">
                         <i class="fas fa-boxes fa-2x opacity-75"></i>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     
     <div class="col-xl-3 col-md-6">
         <div class="card bg-warning text-white">
-            <div class="card-body">
+            <a class="card-body text-decoration-none" href="{{ route('materials.index') }}">
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="card-title">Stok Menipis</h5>
@@ -44,7 +41,7 @@
                         <i class="fas fa-exclamation-triangle fa-2x opacity-75"></i>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     

@@ -57,11 +57,14 @@ class MaterialRequestController extends Controller
         ]);
 
         //dd($material_request);
-        $material = $material_request->material;
+        //$material = $material_request->material;
         
         if ($validated['jumlah_disetujui'] > $request->stok) {
             return back()->with('error', 'Stok tidak mencukupi');
         }
+
+        $material = Material::find($request->materialid);
+        $material -> decrement('stok',$validated['jumlah_disetujui']);
 
         MaterialRequest::where('id',$request->rowid)->update([
             'jumlah_disetujui' => $validated['jumlah_disetujui'],

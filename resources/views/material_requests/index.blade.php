@@ -103,6 +103,7 @@
                                         <form action="{{ route('material-requests.approve', $request) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="rowid" id="rowid" value="{{ $request->id }}">
+                                            <input type="hidden" name="materialid" id="materialid" value="{{ $request->material_id }}">
                                             <input type="hidden" name="stok" id="stok" value="{{ $request->material->stok }}">
                                             <div class="modal-body">
                                                 <p>Permintaan: <strong>{{ $request->material->nama_material }}</strong></p>
@@ -178,7 +179,10 @@
                 </tbody>
             </table>
         </div>
-        
+                <div class="text-end">
+            <a class="btn btn-primary"href="{{ route('dashboard') }}">Kembali</a>
+        </div>
+
         {{ $requests->links() }}
     </div>
 </div>
