@@ -99,6 +99,10 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="text-end">
+            <button class="btn btn-primary">Kembali</button>
+        </div>
         
         {{ $materials->links() }}
     </div>
