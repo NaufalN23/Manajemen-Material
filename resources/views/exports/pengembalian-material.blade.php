@@ -1,29 +1,5 @@
-@extends('layouts.app')
-
-@section('title', 'Permintaan Material')
-
-@section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="h3 mb-0">
-        @if(auth()->user()->isAdmin())
-            Kelola Permintaan Material
-        @else
-            Permintaan Material Saya
-        @endif
-    </h1>
-    @if(auth()->user()->isTeknisi())
-        <a href="{{ route('material-requests.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i>
-            Buat Permintaan
-        </a>
-    @endif
-</div>
-
-<div class="card">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="table-light">
+<table>
+    <thead>
                     <tr>
                         <th>No. Permintaan</th>
                         @if(auth()->user()->isAdmin())
@@ -36,9 +12,9 @@
                         <th>Tanggal</th>
                         <th>Aksi</th>
                     </tr>
-                </thead>
+    </thead>
                 <tbody>
-                    @forelse($requests as $request)
+                    @forelse($data as $request)
                         <tr>
                             <td>
                                 <code>{{ $request->nomor_permintaan }}</code>
@@ -177,15 +153,4 @@
                         </tr>
                     @endforelse
                 </tbody>
-            </table>
-        </div>
-                <div class="text-end">
-            <a class="btn btn-primary"href="{{ route('dashboard') }}">Kembali</a>
-            <a class="btn btn-success"href="{{ url('export-users') }}">Export Excel</a>
-
-        </div>
-
-        {{ $requests->links() }}
-    </div>
-</div>
-@endsection
+</table>

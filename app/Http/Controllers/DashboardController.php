@@ -37,9 +37,16 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
+        // <-- Perbaikan: hitung langsung menggunakan model MaterialRequest
+        $requestStatusData = [
+            'pending'   => MaterialRequest::where('status', 'pending')->count(),
+            'disetujui' => MaterialRequest::where('status', 'disetujui')->count(),
+            'ditolak'   => MaterialRequest::where('status', 'ditolak')->count(),
+        ];
+
         return view('admin.dashboard', compact(
             'totalMaterials', 'lowStockMaterials', 'pendingRequests', 
-            'pendingReturns', 'recentRequests', 'recentReturns'
+            'pendingReturns', 'recentRequests', 'recentReturns', 'requestStatusData'
         ));
     }
 

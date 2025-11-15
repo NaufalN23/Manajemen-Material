@@ -158,9 +158,64 @@
                         Lihat Semua Pengembalian
                     </a>
                 </div>
+
+                
+            </div>
+        </div>
+    </div>
+    <!-- Statistik Permintaan Material -->
+<div class="row mt-4">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-pie me-2"></i>
+                    Statistik Status Permintaan Material
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="requestStatusChart" height="200"></canvas>
             </div>
         </div>
     </div>
 </div>
+
+</div>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('requestStatusChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Pending', 'Disetujui', 'Ditolak'],
+            datasets: [{
+                data: [
+                    {{ $requestStatusData['pending'] }},
+                    {{ $requestStatusData['disetujui'] }},
+                    {{ $requestStatusData['ditolak'] }}
+                ],
+                backgroundColor: ['#f6c23e', '#1cc88a', '#e74a3b'],
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Distribusi Status Permintaan'
+                }
+            }
+        }
+    });
+});
+</script>
+@endpush
 

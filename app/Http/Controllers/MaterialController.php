@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use Illuminate\Http\Request;
+use App\Exports\PengembalianMaterial;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MaterialController extends Controller
 {
@@ -67,5 +69,11 @@ class MaterialController extends Controller
     {
         $material->delete();
         return redirect()->route('materials.index')->with('success', 'Material berhasil dihapus');
+    }
+
+    // export excel
+    public function export()
+    {
+        return Excel::download(new PengembalianMaterial, 'users.xlsx');
     }
 }
