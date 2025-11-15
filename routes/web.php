@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
     // Material Returns - All authenticated users
     Route::resource('material-returns', MaterialReturnController::class);
 });
-
+Route::get('/export-users', [MaterialController::class, 'export']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
